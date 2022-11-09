@@ -31,6 +31,9 @@ function App() {
       newItemName: newItemName,
     });
   }
+  const deleteItem = (id) => {
+    Axios.delete(`http://localhost:3001/delete/${id}`);
+  }
 
   return (
     <div className="App">
@@ -68,7 +71,7 @@ function App() {
               onChange = {(e) => {setNewItemName(e.target.value)}}
             />
             <button onClick={() => updateItem(val._id)}>Update</button>
-            <button>Delete</button>
+            <button onClick={() => deleteItem(val._id)}>Delete</button>
           </div>
         );
       })}

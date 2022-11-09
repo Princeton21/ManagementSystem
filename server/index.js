@@ -15,7 +15,19 @@ mongoose.connect(
   }
 );
 
-
+app.put("/update", async (req, res) => {
+  const newItemName = req.body.newItemName;
+  const id = req.body.id;
+  try {
+    await ItemModel.findById(id, (err, updatedItem) => {
+      updatedItem.itemName = newItemName;
+      updatedItem.save();
+      res.send("update");
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
 app.post("/insert", async (req, res) => {
   const name = req.body.name;
   const price = req.body.price;
@@ -39,6 +51,13 @@ app.get("/read", async (req, res) => {
     }
     res.send(result);
   });
+});
+
+app.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  // res.send(id);
+  await ItemModel.findByIdAndRemove(id).exec();
+  res.send("deleted");
 });
 
 app.listen(3001, () => {
