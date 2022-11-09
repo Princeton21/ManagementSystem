@@ -3,7 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 
-const FoodModel = require("./models/Food");
+const ItemModel = require("./models/Food");
 
 app.use(express.json());
 app.use(cors());
@@ -15,25 +15,12 @@ mongoose.connect(
   }
 );
 
-app.put("/update", async (req, res) => {
-  const newFoodName = req.body.newFoodName;
-  const id = req.body.id;
-  try {
-    FoodModel.findById(id, (updatedFood) => {
-      updatedFood.foodName = newFoodName
-      updatedFood.save();
-    })
-  } catch (err) {
-    console.log(err);
-  }
-  
 
-});
 app.post("/insert", async (req, res) => {
   const name = req.body.name;
   const price = req.body.price;
   const quantity = req.body.quantity;
-  const food = new FoodModel({
+  const food = new ItemModel({
     itemName: name,
     itemPrice: price,
     itemQuantity: quantity,
@@ -46,12 +33,12 @@ app.post("/insert", async (req, res) => {
   }
 });
 app.get("/read", async (req, res) => {
-  FoodModel.find({}, (err, result) => {
+  ItemModel.find({}, (err, result) => {
     if (err) {
       res.send(err);
     }
     res.send(result);
-  })
+  });
 });
 
 app.listen(3001, () => {

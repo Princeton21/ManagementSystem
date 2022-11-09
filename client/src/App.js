@@ -15,7 +15,7 @@ function App() {
       // console.log(response);
       setShopList(response.data);
     });
-  }, []);
+  },[]);
 
   const addToList = () => {
     // console.log(name + price + quantity);
@@ -25,10 +25,10 @@ function App() {
       quantity: quantity,
     });
   };
-  const updateItem = () => {
+  const updateItem = (id) => {
     Axios.put("http://localhost:3001/update", {
-      name: name,
-      newName: newItemName,
+      id: id,
+      newItemName: newItemName,
     });
   }
 
