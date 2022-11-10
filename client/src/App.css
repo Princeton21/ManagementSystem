@@ -85,9 +85,12 @@ button:active {
     margin-top: 1rem;
 }
 .grid_container{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 1rem;
-    margin-top: 1rem;
+    display:flex;
+    flex-direction: row;
+    margin-left: 80px;
+    height: 100px;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-self: center;
 }
 
