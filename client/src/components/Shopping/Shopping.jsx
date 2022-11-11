@@ -12,7 +12,7 @@ const Shopping = () => {
 
   // arrow function to add the values to the database using Axios
   const addToList = () => {
-    console.log(name + price + quantity);
+    // console.log(name + price + quantity);
     Axios.post("http://localhost:8080/insert", {
       name: name,
       price: price,

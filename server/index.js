@@ -7,6 +7,7 @@ require("dotenv").config(); // Using dotenv to hide sensitive data
 const port = process.env.PORT || 5000;
 
 const ItemModel = require("./models/Item");
+const UserModel = require("./models/User");
 
 app.use(express.json());
 app.use(cors()); 
@@ -16,7 +17,7 @@ mongoose.connect(
     useNewUrlParser: true,
   }
 );
-
+//Cart
 app.put("/update", async (req, res) => {
   const newItemName = req.body.newItemName;
   const id = req.body.id;
@@ -60,6 +61,26 @@ app.delete("/delete/:id", async (req, res) => {
   // res.send(id);
   await ItemModel.findByIdAndRemove(id).exec();
   res.send("deleted");
+});
+
+
+//User
+app.post("/userinsert", async (req, res) => {
+  const name = req.body.name;
+  const email = req.body.email;
+  const password = req.body.password;
+  const user = new UserModel({
+    userName: name,
+    userEmail: email,
+    userPassword: password,
+  });
+  try {
+    await user.save();
+    res.send("User has been saved to the database");
+    console.log("user added to database");
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.listen(process.env.PORT, () => {
