@@ -1,12 +1,25 @@
 .navbar_container{
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    padding: 2px 20px;
+    box-shadow: 0px 7px 18px 0px #0000002e;
+    height: 70px;
+    background: rgba(229, 229, 229, 0.13);
 }
 
+h1{
+    align-self: center;
+}
+li,ul{
+    text-decoration: none;
+}
 .navbar_links ul{
-    
+    text-decoration: none;
+    list-style-type: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 50px;
+    color: black;
 }

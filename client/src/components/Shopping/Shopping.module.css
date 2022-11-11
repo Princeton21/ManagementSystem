@@ -1,11 +1,5 @@
- @font-face {
-     font-family: "Brockers";
-     src: local("Brockers"), url("../../../public/Brockers.ttf") format("truetype");
-     font-weight: bold;
- }
-
+ 
  h1 h2 {
-     font-family: "Brockers";
      font-size: 2em;
  }
 
