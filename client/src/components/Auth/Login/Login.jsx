@@ -24,22 +24,27 @@ const Login = () => {
     <>
       <div className={st.login_container}>
         <div className={st.login_form}>
-          <h1>Login</h1>
+          <h1>Sign In</h1>
 					<div className="form">
-            <label>Username</label>
+            {/* <label>Username</label> */}
+			            <div >
 						<input
+						    className={st.user}
 							type="text"
 							placeholder="Enter your username"
 							onChange={(e) => setName(e.target.value)}
 						/>
-						<label>Email</label>
+						</div>
+						{/* <label>Email</label> */}
 						<input
+						    className={st.email}
 							type="email"
 							placeholder="Enter your email"
 							onChange={(e) => setEmail(e.target.value)}
 						/>
-						<label>Password</label>
+						{/* <label>Password</label> */}
 						<input
+						    className={st.pass}
 							type="password"
 							placeholder="Enter your password"
 							onChange={(e) => setPassword(e.target.value)}
