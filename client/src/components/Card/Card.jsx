@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react'
-import Axios from 'axios'
+import React, { useEffect, useState } from "react";
+import Axios from "axios";
 import styles from "./Card.module.css";
 // import Button from "../../ui/Button/Button";
 const Card = () => {
-    const [newItemName, setNewItemName] = useState("");
-    const [showCard, setShowCard] = useState(true);
+  const [newItemName, setNewItemName] = useState("");
+  const [showCard, setShowCard] = useState(true);
 
-    const [shopList, setShopList] = useState([]);
-    // UseEffect hook to always update when a new item is added to the database
-      useEffect(() => {
-        Axios.get("http://localhost:3001/read").then((response) => {
-          // console.log(response);
-          setShopList(response.data);
-        });
-      });
+  const [shopList, setShopList] = useState([]);
+  // UseEffect hook to always update when a new item is added to the database
+  useEffect(() => {
+    Axios.get(`http://localhost:8080/read`).then((response) => {
+      // console.log(response);
+      setShopList(response.data);
+    });
+  });
 
-      const updateItem = (id) => {
-        Axios.put("http://localhost:3001/update", {
-          id: id,
-          newItemName: newItemName,
-        });
-      };
-      const deleteItem = (id) => {
-        Axios.delete(`http://localhost:3001/delete/${id}`);
-      };
+  const updateItem = (id) => {
+    Axios.put("http://localhost:8080/update", {
+      id: id,
+      newItemName: newItemName,
+    });
+  };
+  const deleteItem = (id) => {
+    Axios.delete(`http://localhost:8080/delete/${id}`);
+  };
   return (
     <>
       <div className={styles.flex_container}>
@@ -34,7 +34,7 @@ const Card = () => {
               <p>Price: {val.itemPrice}</p>
               <p>Quantity: {val.itemQuantity}</p>
               <button
-                      className={showCard ? `${styles.active}` : { display:"none" }}
+                className={showCard ? `${styles.active}` : { display: "none" }}
                 onClick={() => setShowCard(showCard ^ 1)}
               >
                 {!showCard ? "X" : "Update"}
@@ -58,6 +58,6 @@ const Card = () => {
       </div>
     </>
   );
-}
+};
 
-export default Card
+export default Card;

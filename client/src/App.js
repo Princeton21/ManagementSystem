@@ -1,9 +1,16 @@
 import React from 'react'
-import Shopping from "./components/Shopping"
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/Navbar/NavBar'
+import Shopping from "./components/Shopping/Shopping"
 const App = () => {
   return (
     <>
-      <Shopping/>
+      <NavBar />
+      <Routes>
+        <Route path="/shopping" element={<Shopping />} />
+
+      </Routes>
+      {/* <Shopping/> */}
     </>
   )
 }

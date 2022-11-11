@@ -6,7 +6,7 @@ const app = express();
 require("dotenv").config(); // Using dotenv to hide sensitive data
 const port = process.env.PORT || 5000;
 
-const ItemModel = require("./models/Food");
+const ItemModel = require("./models/Item");
 
 app.use(express.json());
 app.use(cors()); 
@@ -34,13 +34,13 @@ app.post("/insert", async (req, res) => {
   const name = req.body.name;
   const price = req.body.price;
   const quantity = req.body.quantity;
-  const food = new ItemModel({
+  const item = new ItemModel({
     itemName: name,
     itemPrice: price,
     itemQuantity: quantity,
   });
   try {
-    await food.save();
+    await item.save();
     res.send("Item has been saved to the database");
   } catch (err) {
     console.log(err);

@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import styles from "../components/Shopping.module.css"; // Using module to guarantee that the styles are only applied to this component
-import Card from "./Card/Card";
-import Btn from "../ui/Button/Btn";
+import styles from "../Shopping/Shopping.module.css"; // Using module to guarantee that the styles are only applied to this component
+import Card from "../Card/Card";
+// import Btn from "../ui/Button/Btn";
 
 const Shopping = () => {
-
   // Reach useState hook to set the name price and quantity of the item
-  const [name, setName] = useState(""); 
-  const [price, setPrice] = useState(0); 
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
 
   // arrow function to add the values to the database using Axios
   const addToList = () => {
-    // console.log(name + price + quantity);
-    Axios.post("http://localhost:3001/insert", {
+    console.log(name + price + quantity);
+    Axios.post("http://localhost:8080/insert", {
       name: name,
       price: price,
       quantity: quantity,
@@ -43,7 +42,7 @@ const Shopping = () => {
           placeholder="Enter the quantity"
           onChange={(e) => setQuantity(e.target.value)}
         />
-        <Btn onClick={addToList}>Add to the list</Btn>
+        <button onClick={addToList}>Add to the list</button>
       </div>
       <hr />
       <h1>Cart</h1>
