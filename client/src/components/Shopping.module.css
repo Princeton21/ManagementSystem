@@ -1,0 +1,57 @@
+ @font-face {
+     font-family: "Brockers";
+     src: local("Brockers"), url("../../public/Brockers.ttf") format("truetype");
+     font-weight: bold;
+ }
+
+ h1 h2 {
+     font-family: "Brockers";
+     font-size: 2em;
+ }
+
+
+ .App {
+     display: flex;
+     text-align: center;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ input {
+     /* margin-right: 1rem;
+    margin-left:1rem; */
+     width: 70%;
+     height: 40px;
+     line-height: 28px;
+     padding: 0 1rem;
+     padding-left: 2.5rem;
+     border: 2px solid transparent;
+     border-radius: 8px;
+     outline: none;
+     background-color: #f3f3f4;
+     color: #0d0c22;
+     transition: .3s ease;
+ }
+
+ .input::placeholder {
+     color: #9e9ea7;
+ }
+
+ label {
+     font-size: 2rem;
+     text-decoration: none;
+     font-family: "'Courier New', Courier, monospace";
+     margin: 1rem;
+ }
+
+ .card_container {
+     background: rgb(253, 213, 92);
+     border-radius: 20px;
+     padding: 2rem;
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     align-items: center;
+     justify-content: center;
+ }
